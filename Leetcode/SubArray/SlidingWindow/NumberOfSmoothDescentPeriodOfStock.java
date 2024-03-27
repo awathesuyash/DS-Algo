@@ -47,25 +47,7 @@ public long getDescentPeriods(int[] prices) {
     return count;
 }
 
-// Easy Apporach:
-public long getDescentPeriods(int[] prices) {
-
-    int n = prices.length;
-    int count = 1;
-    long ans = 1;
-    for (int i = 1; i < n; i++) {
-        if (prices[i - 1] - prices[i] == 1)
-            ++count;
-        else
-            count = 1;
-
-        ans += count;
-    }
-    return ans;
-
-}
-
-// Sliding WIndow 2
+// Sliding WIndow 2 : Combined Approach (1 +2)
 public long getDescentPeriods(int[] prices) {
 
     int start = 0, end = 1;
@@ -78,7 +60,6 @@ public long getDescentPeriods(int[] prices) {
             ans += count;
         } else {
             //It means that j cannot be part of previous subarrays but can start subarray from me. So, ans+=1
-
             ans += 1;
             start = end;
         }
